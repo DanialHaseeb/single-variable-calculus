@@ -1,5 +1,8 @@
-# single-variable-calculus
-MIT 18.06 Single Variable Calculus Lecture Notes created in LaTeX.
+# Single-Variable Calculus
+## LaTeX Notes
 
-These are provided under a Creative Commons License.
-For more information, visit: https://ocw.mit.edu/
+**MIT 18.06**
+Provided under a Creative Commons License.
+For more information, please visit [MIT OpenCourseWare](https://ocw.mit.edu/)
+
+Just a fun side-project to learn the basics of LaTeX and Git during a pandemic-induced quarantine. :)
