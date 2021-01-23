@@ -1,0 +1,60 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{SD}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{amsmath, amssymb, amsthm}
+\RequirePackage{siunitx}
+\RequirePackage{blindtext}
+
+\RequirePackage{graphicx}
+%\graphicspath{{./images}{../images}}
+
+\usepackage[backend=biber,style=apa]{biblatex}
+%\addbibresource{sample.bib}
+
+\RequirePackage{fancyhdr}
+\renewcommand{\headrulewidth}{0.5pt}%
+\renewcommand{\footrulewidth}{0pt}%
+
+\RequirePackage{sectsty}
+\RequirePackage{helvet}
+
+
+\RequirePackage{hyperref}
+\hypersetup
+    {
+        colorlinks=true,
+        linkcolor=black,
+        filecolor=magenta,      
+        urlcolor=blue,
+    }
+
+\newtheoremstyle{note}%
+{5pt}%          Space Above
+{5pt}%          Space Below
+{}%             Body Font
+{}%             Indent Amount
+{\scshape}%     Head Font
+{}%             Punctuation After Head
+{.5em}%         Space After Head
+{}%             Head Spec
+
+\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+\newtheorem*{KL}{Klein’s Lemma}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[chapter]
+\newtheorem{exmp}{Example}[chapter]
+\newtheorem{xca}[exmp]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem*{ncase}{Case}
+\newtheorem{case}{Case}
