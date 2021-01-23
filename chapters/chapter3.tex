@@ -12,4 +12,22 @@ When there is a constant, $c$:
     \frac{d}{dx} \sin x &= \cos x\\
     \frac{d}{dx} \cos x &= - \sin x
 \end{align*}
+\section{Product Rule}
+\begin{equation}
+    (u \cdot v)' = v \cdot u' + u \cdot v'
+    \label{eqn:product-rule}
+\end{equation}
+\begin{exmp}
+    To differentiate $f(x) = x^3 \sin x$, we let 
+    $u = x^3$ and $v = \sin x$:
+    \begin{align*}
+        \therefore\quad u' &= 3x^2\\
+                        v' &= \cos x
+    \end{align*}
+    From Equation \ref{eqn:product-rule}, we know:
+    \begin{align*}
+        f'(x)   &= vu' + uv'\\
+                &= 3x^2 \sin x + x^3 \cos x
+    \end{align*}
+\end{exmp}
 \end{document}
