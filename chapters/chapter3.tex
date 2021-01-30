@@ -1,0 +1,64 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Derivative Formulæ}
+\section{General Functions}
+For any two functions $u$ and $v$:
+\[ (u + v)' = u' + v' \]
+When there is a constant, $c$:
+\[ (c \cdot u)' = c \cdot u' \]
+\section{Trigonometric Functions}
+\begin{align*}
+    \frac{d}{dx} \sin x &= \cos x\\
+    \frac{d}{dx} \cos x &= - \sin x
+\end{align*}
+\section{Product Rule}
+\begin{equation}
+    (u \cdot v)' = v \cdot u' + u \cdot v'
+    \label{eqn:product-rule}
+\end{equation}
+\begin{exmp}
+    To differentiate $f(x) = x^3 \sin x$, we let 
+    $u = x^3$ and $v = \sin x$:
+    \begin{align*}
+        \therefore \quad u' &= 3x^2\\
+                         v' &= \cos x
+    \end{align*}
+    From Equation \ref{eqn:product-rule}, we know:
+    \begin{align*}
+        f'(x)   &= vu' + uv'\\
+                &= 3x^2 \sin x + x^3 \cos x
+    \end{align*}
+\end{exmp}
+\section{Quotient Rule}
+\[ \left( \frac{u}{v} \right)' = \frac{vu' - uv'}{v^2} \]
+\section{Chain Rule}
+The \emph{chain rule} (in Leibniz's notation) can be written 
+in the following way:
+\[ \frac{dy}{dt} = \frac{dy}{dx} \cdot \frac{dx}{dt} \]
+\begin{exmp}
+    To differentiate $y = \sin^{10} t$, we let 
+    $x = \sin t$:
+    \begin{align*}
+        y &= x^{10}\\
+        \therefore \quad \frac{dy}{dx} &= 10x^9
+    \end{align*}
+    From the chain rule, we get:
+    \[ \frac{dy}{dt} = 10x^9 \cos t \quad \because \quad \frac{dx}{dt} = \cos t \]
+    Finally, we need to substitute $x = \sin t$:
+    \[ \frac{dy}{dt} = 10 \sin^9 t \cos t \]
+\end{exmp}
+\begin{exmp}
+    To differentiate $\sin (10t)$, we let 
+    $x = 10t$ and $y = \sin x$:
+    We now have:
+    \begin{align*}
+        \frac{dx}{dt} &= 10\\
+        \frac{dy}{dx} &= \cos x\\
+        \frac{d}{dt} \sin (10t) &= \frac{dy}{dt}\\
+        \therefore \quad \frac{dy}{dt}  &= \frac{dy}{dx} \cdot \frac{dx}{dt}\\
+                                        &= 10 \cos x\\
+                                        &= 10 \cos (10t)
+    \end{align*}
+\end{exmp}
+\end{document}
