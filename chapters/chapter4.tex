@@ -20,4 +20,43 @@ then $y^{\prime\prime}$ is the derivative of $y^\prime$.
 
 Higher derivatives are pretty straightforward --- 
 just keep taking the derivative!
+\begin{exmp}
+    Let us see what happens if we keep taking the derivative of 
+    $f(x) = \sin x$:
+    \begin{align*}
+        f'(x)   &= \cos x   \\
+        f''(x)  &= - \sin x \\
+        f'''(x) &= - \cos x \\
+        f^{(4)} &= \sin x
+    \end{align*}
+    We have, somehow, arrived back at the original function, 
+    $f''''(x) = f(x)$.
+    The sine and cosine functions, both, have this property.
+\end{exmp}
+\begin{exmp}
+    What is $D^n x^n$?  \\
+    We will start small and look for a pattern. We know:
+    \begin{align*}
+        \frac{d}{dx} x^n        &= nx^{n - 1}               \\
+        \frac{d^2}{dx^2} x^n    &= n(n - 1)x^{n - 2}        \\
+        \frac{d^3}{dx^3} x^n    &= n(n - 1)(n - 2)x^{n - 3} \\
+    \end{align*}
+    We can reasonably extend this pattern to deduce:
+    \[
+        \frac{d^{n - 1}}{dx^{n - 1}} x^n =
+        n(n - 1)(n - 2)(n - 3) \cdots 3 \cdot 2 \cdot x
+    \]
+    Finally, we get:
+    \[
+        \frac{d^{n}}{dx^{n}} x^n =
+        n(n - 1)(n - 2)(n - 3) \cdots 3 \cdot 2 \cdot 1
+    \]
+    There is a name for this pattern of products; \emph{factorials} ($n!$).
+    Therefore:
+    \[ \frac{d^{n}}{dx^{n}} x^n = n! \]
+    Now, we can also see:
+    \[ \frac{d^{n + 1}}{dx^{n + 1}} x^n = 0 \]
+    We just (unwittingly) did a proof by \emph{mathematical induction}! 
+    It is an extremely useful tool in every mathematician's toolbox.
+\end{exmp}
 \end{document}
