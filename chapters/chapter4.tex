@@ -1,0 +1,62 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Higher Derivatives}
+Higher derivatives are derivatives of derivatives. 
+For instance, if $y^\prime$ is the derivative of $y'$, 
+then $y^{\prime\prime}$ is the derivative of $y^\prime$.
+\begin{table}[h]
+    \centering
+    \caption{All the different notations for higher derivates}
+    \label{tab:notations}
+    \begin{tabular}{c|c|c|c}
+    $y'$      & $\frac{d}{dx}y$                   & $\frac{dy}{dx}$     & $Dy$   \\ \hline
+    $y''$     & $\left( \frac{d}{dx} \right)^2 y$ & $\frac{d^2y}{dx^2}$ & $D^2y$ \\ \hline
+    $y'''$    & $\left( \frac{d}{dx} \right)^3 y$ & $\frac{d^3y}{dx^3}$ & $D^3y$ \\ \hline
+    $y^{(4)}$ & $\left( \frac{d}{dx} \right)^4 y$ & $\frac{d^4y}{dx^4}$ & $D^4y$ \\ \hline
+    $y^{(n)}$ & $\left( \frac{d}{dx} \right)^n y$ & $\frac{d^ny}{dx^n}$ & $D^ny$
+    \end{tabular}
+\end{table}
+
+Higher derivatives are pretty straightforward --- 
+just keep taking the derivative!
+\begin{exmp}
+    Let us see what happens if we keep taking the derivative of 
+    $f(x) = \sin x$:
+    \begin{align*}
+        f'(x)   &= \cos x   \\
+        f''(x)  &= - \sin x \\
+        f'''(x) &= - \cos x \\
+        f^{(4)} &= \sin x
+    \end{align*}
+    We have, somehow, arrived back at the original function, 
+    $f''''(x) = f(x)$.
+    The sine and cosine functions, both, have this property.
+\end{exmp}
+\begin{exmp}
+    What is $D^n x^n$?  \\
+    We will start small and look for a pattern. We know:
+    \begin{align*}
+        \frac{d}{dx} x^n        &= nx^{n - 1}               \\
+        \frac{d^2}{dx^2} x^n    &= n(n - 1)x^{n - 2}        \\
+        \frac{d^3}{dx^3} x^n    &= n(n - 1)(n - 2)x^{n - 3} \\
+    \end{align*}
+    We can reasonably extend this pattern to deduce:
+    \[
+        \frac{d^{n - 1}}{dx^{n - 1}} x^n =
+        n(n - 1)(n - 2)(n - 3) \cdots 3 \cdot 2 \cdot x
+    \]
+    Finally, we get:
+    \[
+        \frac{d^{n}}{dx^{n}} x^n =
+        n(n - 1)(n - 2)(n - 3) \cdots 3 \cdot 2 \cdot 1
+    \]
+    There is a name for this pattern of products; \emph{factorials} ($n!$).
+    Therefore:
+    \[ \frac{d^{n}}{dx^{n}} x^n = n! \]
+    Now, we can also see:
+    \[ \frac{d^{n + 1}}{dx^{n + 1}} x^n = 0 \]
+    We just (unwittingly) did a proof by \emph{mathematical induction}! 
+    It is an extremely useful tool in every mathematician's toolbox.
+\end{exmp}
+\end{document}
