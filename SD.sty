@@ -22,7 +22,6 @@
 \RequirePackage{sectsty}
 \RequirePackage{helvet}
 
-
 \RequirePackage{hyperref}
 \hypersetup
     {
@@ -31,6 +30,24 @@
         filecolor=magenta,      
         urlcolor=blue,
     }
+
+\RequirePackage{physics}
+\RequirePackage{tikz}
+\RequirePackage{mathdots}
+\RequirePackage{yhmath}
+\RequirePackage{cancel}
+\RequirePackage{color}
+\RequirePackage{array}
+\RequirePackage{multirow}
+\RequirePackage{gensymb}
+\RequirePackage{tabularx}
+\RequirePackage{booktabs}
+
+\usetikzlibrary{fadings}
+\usetikzlibrary{patterns}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{shapes}
+    
 
 \newtheoremstyle{note}%
 {5pt}%          Space Above
@@ -42,19 +59,19 @@
 {.5em}%         Space After Head
 {}%             Head Spec
 
-\newtheorem{thm}{Theorem}[chapter]
+\newtheorem{thm}{Theorem}[section]
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem*{cor}{Corollary}
 \newtheorem*{KL}{Klein’s Lemma}
 
 \theoremstyle{definition}
-\newtheorem{defn}{Definition}[chapter]
-\newtheorem{exmp}{Example}[chapter]
+\newtheorem{defn}{Definition}[section]
+\newtheorem{exmp}{Example}[section]
 \newtheorem{xca}[exmp]{Exercise}
 
 \theoremstyle{remark}
 \newtheorem*{rem}{Remark}
 \newtheorem*{note}{Note}
-\newtheorem*{ncase}{Case}
+\newtheorem*{case*}{Case}
 \newtheorem{case}{Case}

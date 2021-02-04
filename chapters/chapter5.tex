@@ -62,4 +62,25 @@ We finally have an expression for $y'$:
 If $y = f(x)$ and $g(y) = x$, we call $g$ the \emph{inverse} of $f$, 
 denoted $f^{-1}$:
 \[ x = g(y) = f^{-1}(y) \]
+Now, we will use implicit differentiation to find the derivative 
+of the inverse function:
+\begin{align*}
+    y &= f(x)\\
+    f^{-1}(y) &= x\\
+    \frac{d}{dx} \left( f^{-1}(y) \right) &= \frac{d}{dx}(x)\\
+    \frac{d}{dy} \left( f^{-1}(y) \right) \cdot \frac{dy}{dx} &= 1\\
+    \frac{d}{dy} \left( f^{-1}(y) \right) &= \frac{1}{\frac{dy}{dx}}\\
+\end{align*}
+\begin{exmp}
+    The derivative of $y = \tan^{-1}(x)$:
+    \begin{align*}
+        \tan y &= x\\
+        \frac{d}{dx} \left( \tan y \right) &= \frac{d}{dx}(x)\\
+        \frac{d}{dy} \left( \tan y \right) \cdot \frac{dy}{dx} &= 1\\
+        \left( \csc^2 y \right) \cdot \frac{dy}{dx} &= 1\\
+        \frac{dy}{dx} &= \cos^2 y\\
+        &= \cos^2 \left( \tan^{-1}(x) \right)
+    \end{align*}
+    This form is messy. We will use geometry to simplify:
+\end{exmp}
 \end{document}
