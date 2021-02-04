@@ -1,0 +1,65 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+\chapter{Implicit Differentiation and Inverses}
+\section{Implicit Differentiation}
+We know:
+\[ \frac{d}{dx} x^a = ax^{a-1} \quad \mid \quad a \in \mathbb{Z} \]
+We will now extend this formula to cover $\mathbb{Q}$ as well:
+\[
+    a = \frac{m}{n} \rightarrow y = x^{\frac{m}{n}}
+    \quad \mid \quad
+    m, n \in \mathbb{Z}
+\]
+We can start computing the derivative using the chain rule:
+\begin{align*}
+    y^n &= x^n\\
+    \frac{d}{dx} \left( y^n \right) &= \frac{d}{dx} \left( x^m \right)\\
+    \frac{d}{dy} \left( y^n \right) \cdot \frac{dy}{dx} &= mx^{m - 1}\\
+    \frac{dy}{dx} \left( ny^{n - 1} \right) &= mx^{m - 1}\\
+\end{align*}
+We finally have an expression for $y'$:
+\begin{align*}
+    \frac{dy}{dx} &= \frac{mx^{m - 1}}{ny^{n - 1}}\\
+    &= \frac{m}{n} \cdot \frac{x^{m - 1}}{y^{n - 1}}\\
+    &= \frac{m}{n} \cdot \frac{x^{m - 1}}{\left( x^{\frac{m}{n}} \right)^{n - 1}}\\
+    &= ax^{m - 1 - \frac{m}{n}(n - 1)}\\
+    &= ax^{a - 1}\\
+    \therefore \frac{d}{dx} x^a &= ax^{a - 1} \quad \mid \quad a \in \mathbb{Q}
+\end{align*}
+\begin{exmp}
+    The equation of a unit circle is:
+    \[ y^2 = 1 - x^2 \]
+    This can be rewritten as:
+    \[ y = \left( 1 - x^2 \right)^{\frac{1}{2}} \]
+    We can compute the derivative using the chain rule:
+    \begin{align*}
+        \frac{dy}{dx} &= \frac{1}{2} \left( 1 - x^2 \right)^{\frac{1}{2} - 1} \cdot (-2x)\\
+        &= \frac{-x}{\left( 1 - x^2 \right)^{\frac{1}{2}}}\\
+        &= - \frac{x}{y}
+    \end{align*}
+    However, we can do the same thing using \emph{implicit differentiation}:
+    \begin{align*}
+        x^2 + y^2 &= 1\\
+        \frac{d}{dx} \left( x^2 + y^2 \right) &= \frac{d}{dx} (1)\\
+        \frac{d}{dx} \left( x^2 \right) + \frac{d}{dx} \left( y^2 \right) &= 0\\
+        2x + \frac{d}{dy} \left( y^2 \right) \cdot \frac{dy}{dx} &= 0\\
+        2x + 2y y' &= 0\\
+        y' &= - \frac{x}{y}
+    \end{align*}
+\end{exmp}
+\begin{exmp}
+    In the following case, it is not so easy to solve for $y$:
+    \[ y^3 +xy^2 + 1 = 0 \]
+    We will need to use implicit differentiation to find the derivative:
+    \begin{align*}
+        3y^2y' + y^2 + 2xyy' + 0 &= 0\\
+        y' \left( 3y^2 + 2xy \right) &= -y^2\\
+        y' &= - \frac{y^2}{3y^2 + 2xy}
+    \end{align*}
+\end{exmp}
+\section{Inverses}
+If $y = f(x)$ and $g(y) = x$, we call $g$ the \emph{inverse} of $f$, 
+denoted $f^{-1}$:
+\[ x = g(y) = f^{-1}(y) \]
+\end{document}
