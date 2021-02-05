@@ -1,0 +1,283 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+%
+\chapter{Implicit Differentiation and Inverses}
+%--------------------------------------------------
+\section{Implicit Differentiation}
+%
+We know:
+\[ \frac{d}{dx} x^a = ax^{a-1} \quad \mid \quad a \in \mathbb{Z} \]
+We will now extend this formula to cover $\mathbb{Q}$ as well:
+\[
+    a = \frac{m}{n} \rightarrow y = x^{\frac{m}{n}}
+    \quad \mid \quad
+    m, n \in \mathbb{Z}
+\]
+We can start computing the derivative using the chain rule:%
+%
+\begin{align*}
+    y^n                                                 & = x^n                             \\
+    \frac{d}{dx} \left( y^n \right)                     & = \frac{d}{dx} \left( x^m \right) \\
+    \frac{d}{dy} \left( y^n \right) \cdot \frac{dy}{dx} & = mx^{m - 1}                      \\
+    \frac{dy}{dx} \left( ny^{n - 1} \right)             & = mx^{m - 1}
+\end{align*}
+%
+We finally have an expression for $y'$:
+%
+\begin{align*}
+    \frac{dy}{dx}               & = \frac{mx^{m - 1}}{ny^{n - 1}}                                              \\
+                                & = \frac{m}{n} \cdot \frac{x^{m - 1}}{y^{n - 1}}                              \\
+                                & = \frac{m}{n} \cdot \frac{x^{m - 1}}{\left( x^{\frac{m}{n}} \right)^{n - 1}} \\
+                                & = ax^{m - 1 - \frac{m}{n}(n - 1)}                                            \\
+                                & = ax^{a - 1}                                                                 \\
+    \therefore \frac{d}{dx} x^a & = ax^{a - 1} \quad \mid \quad a \in \mathbb{Q}
+\end{align*}
+%
+\begin{exmp}
+    The equation of a unit circle is:
+    \[ y^2 = 1 - x^2 \]
+    This can be rewritten as:
+    \[ y = \left( 1 - x^2 \right)^{\frac{1}{2}} \]
+    We can compute the derivative using the chain rule:
+    %
+    \begin{align*}
+        \frac{dy}{dx} & = \frac{1}{2} \left( 1 - x^2 \right)^{\frac{1}{2} - 1} \cdot (-2x) \\
+                      & = \frac{-x}{\left( 1 - x^2 \right)^{\frac{1}{2}}}                  \\
+                      & = - \frac{x}{y}
+    \end{align*}
+    %
+    However, we can do the same thing using \emph{implicit differentiation}:
+    %
+    \begin{align*}
+        x^2 + y^2                                                         & = 1                \\
+        \frac{d}{dx} \left( x^2 + y^2 \right)                             & = \frac{d}{dx} (1) \\
+        \frac{d}{dx} \left( x^2 \right) + \frac{d}{dx} \left( y^2 \right) & = 0                \\
+        2x + \frac{d}{dy} \left( y^2 \right) \cdot \frac{dy}{dx}          & = 0                \\
+        2x + 2y y'                                                        & = 0                \\
+        y'                                                                & = - \frac{x}{y}
+    \end{align*}
+    %
+\end{exmp}
+%
+\begin{exmp}
+    In the following case, it is not so easy to solve for $y$:
+    \[ y^3 +xy^2 + 1 = 0 \]
+    We will need to use implicit differentiation to find the derivative:
+    %
+    \begin{align*}
+        3y^2y' + y^2 + 2xyy' + 0     & = 0                        \\
+        y' \left( 3y^2 + 2xy \right) & = -y^2                     \\
+        y'                           & = - \frac{y^2}{3y^2 + 2xy}
+    \end{align*}
+    %
+\end{exmp}
+%--------------------------------------------------
+\section{Inverses}
+%
+If $y = f(x)$ and $g(y) = x$, we call $g$ the \emph{inverse} of $f$,
+denoted $f^{-1}$:
+\[ x = g(y) = f^{-1}(y) \]
+Now, we will use implicit differentiation to find the derivative
+of the inverse function:
+%
+\begin{align*}
+    y                                                         & = f(x)                    \\
+    f^{-1}(y)                                                 & = x                       \\
+    \frac{d}{dx} \left( f^{-1}(y) \right)                     & = \frac{d}{dx}(x)         \\
+    \frac{d}{dy} \left( f^{-1}(y) \right) \cdot \frac{dy}{dx} & = 1                       \\
+    \frac{d}{dy} \left( f^{-1}(y) \right)                     & = \frac{1}{\frac{dy}{dx}} \\
+\end{align*}
+%
+\begin{exmp}
+    The derivative of $y = \tan^{-1}(x)$:
+    %
+    \begin{align*}
+        \tan y                                                 & = x                                  \\
+        \frac{d}{dx} \left( \tan y \right)                     & = \frac{d}{dx}(x)                    \\
+        \frac{d}{dy} \left( \tan y \right) \cdot \frac{dy}{dx} & = 1                                  \\
+        \left( \csc^2 y \right) \cdot \frac{dy}{dx}            & = 1                                  \\
+        \frac{dy}{dx}                                          & = \cos^2 y                           \\
+                                                               & = \cos^2 \left( \tan^{-1}(x) \right)
+    \end{align*}
+    %
+    This form is messy but we can use geometry to simplify.
+    %
+    \begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}[scale = 0.5 \textwidth / 2cm]
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (2,0);
+            \coordinate (C) at (0,1);
+            \draw
+            (A)
+            --
+            node[below = 5pt]
+                {$x$}
+            (B)
+            --
+            node
+            [
+            sloped,
+            above = 5pt
+            ]
+            {$\left( 1 + x^2 \right)^{\frac{1}{2}}$}
+            (C)
+            --
+            node[left = 5pt]
+                {$1$}
+            cycle
+            pic
+                [
+                    draw = green!50!black,
+                    fill = green!25,
+                    angle radius = 1cm,
+                    "$y$",
+                    -stealth
+                ]
+                {angle = A--C--B}
+            pic
+                [
+                    draw = black,
+                    angle radius = 0.5cm
+                ]
+                {right angle = B--A--C};
+        \end{tikzpicture}
+        \caption
+        {
+            Triangle with angles and lengths corresponding to
+            those in the example illustrating differentiation
+            using the inverse function
+        }
+        \label{fig:simplificationTriangle}
+    \end{figure}
+
+    In the triangle in Figure \ref{fig:simplificationTriangle},
+    $\tan y = x \Rightarrow y = \tan^{-1}(x)$. From this, we can find:
+    \begin{align*}
+        \cos y                                   & = \frac{1}{\sqrt{1 + x^2}}                  \\
+        \left( \cos y \right)^2                  & = \left( \frac{1}{\sqrt{1 + x^2}} \right)^2 \\
+        \cos^2 y                                 & = \frac{1}{1 + x^2}                         \\
+        \frac{dy}{dx}                            & = \frac{1}{1 + x^2}                         \\
+        \frac{d}{dx} \left( \tan^{-1}(x) \right) & = \frac{1}{1 + x^2}
+    \end{align*}
+    %
+\end{exmp}
+%
+\subsection{Graphing}
+%
+Suppose $y = f(x)$ and $g(y) = f^{-1}(y) = x$.
+
+To graph $f$ and $g$ together, we need to write $g$ as a function of $x$.
+If $g(x) = y$, then $x = f(y)$. What we have done is trade the variables
+$x$ and $y$. This is illustrated in Figure \ref{fig:inverseTangent}:
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}
+        [
+            scale = \textwidth / 11cm,
+            smooth,
+            > = latex
+        ]
+
+        % Axes
+        \draw[<->]  (-5,0) -- (5,0) node[right] {$x$};
+        \draw[<->]  (0,-5) -- (0,5) node[above] {$y$};
+        % Origin
+        \node at (0,0) [below right = 2pt] {$0$};
+
+        % Horizontal Aymptotes
+        \draw
+        [
+            densely dotted,
+            blue
+        ]
+        (-5,1.57)  -- (5,1.57);
+        \draw
+        [
+            densely dotted,
+            blue
+        ]
+        (-5,-1.57) -- (5,-1.57);
+        % Vertical Asymptotes
+        \draw[densely dotted] (1.57,-5)  -- (1.57,5);
+        \draw[densely dotted] (-1.57,-5) -- (-1.57,5);
+
+        % Ticks:
+        \draw (-1.57,-2pt) -- (-1.57,2pt);
+        \draw (1.57,-2pt)  -- (1.57,2pt);
+        \draw (-2pt,-1.57) -- (2pt,-1.57);
+        \draw (-2pt,1.57)  -- (2pt,1.57);
+
+        % y = ±τ/4
+        \node at (0,1.57)
+        [
+            right = 2pt,
+            fill = white
+        ]
+        {$\frac{\tau}{4}$};
+        \node at (0,-1.57)
+        [
+            right = 2pt,
+            fill = white
+        ]
+        {$- \frac{\tau}{4}$};
+
+        % x = ±τ/4
+        \node at (-1.57,0)
+        [
+            below = 2pt,
+            fill = white
+        ]
+        {$ - \frac{\tau}{4}$};
+        \node at (1.57,0)
+        [
+            below = 2pt,
+            fill = white
+        ]
+        {$ \frac{\tau}{4}$};
+
+        % y = x
+        \draw
+        [
+            gray,
+            densely dashed
+        ]
+        plot[domain = -4 : 4]
+        (\x,\x)
+        node
+            [
+                right = 2pt,
+                fill = white
+            ]
+            {$y = x$};
+
+        % y = tan(x)
+        \draw
+        plot[domain = -1.37 : 1.37]
+        (\x,{tan(\x r)}) % \x r means to convert '\x' from degrees to _r_adians:
+        node
+            [
+                right = 2pt,
+                fill = white
+            ]
+            {$y = \tan(x)$};
+
+        % y = arctan(x)
+        \draw[blue]
+        plot[domain = -4.9 : 4.9]
+        (\x,{rad(atan(\x))})
+        node[below]
+            {$y = \tan^{-1}(x)$};
+
+        % Origin Mark:
+        \filldraw[black] (0,0) circle [radius=1pt];
+    \end{tikzpicture}
+    \caption
+    {
+        You can think about $f^{-1}$ as the graph of $f$ reflected
+        about the line $y = x$
+    }
+    \label{fig:inverseTangent}
+\end{figure}
+\end{document}
