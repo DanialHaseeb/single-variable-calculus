@@ -1,8 +1,19 @@
-\documentclass[11pt,a4paper]{book}
-\setlength{\headheight}{13.6pt}
+\documentclass
+[
+  11pt,
+  a4paper
+]
+{memoir}
 
-\usepackage{SVC}
 \usepackage{subfiles}
+\usepackage{SD}
+
+\usetikzlibrary
+{
+    angles,
+    quotes,
+    shapes
+}
 
 \title{Single-Variable Calculus}
 \author{Syed, Danial Haseeb}
@@ -18,9 +29,10 @@
 
 % Copyright Page
 \subfile{copyright}
+\clearpage
 
-% Contents
-\tableofcontents
+% Contentste
+\tableofcontents*
 
 % Preface
 \subfile{chapters/preface}

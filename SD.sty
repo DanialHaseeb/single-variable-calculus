@@ -12,6 +12,10 @@
 [utf8]
 {inputenc}
 
+% Paragraph Indent Style
+\nonzeroparskip
+\setlength{\parindent}{0pt}
+
 % Graphics
 \RequirePackage{graphicx}
 \graphicspath{{./images}{../images}}
@@ -19,43 +23,22 @@
 % Mathematical Packages
 \RequirePackage
 {
-    amsmath,
-    amssymb,
-    amsthm,
-    siunitx,
-    booktabs
+  mathtools,
+  siunitx,
+  amssymb,
+  amsthm,
+  tikz
 }
 
-\usepackage[backend=biber,style=apa]{biblatex}
-%\addbibresource{sample.bib}
-
-\RequirePackage{fancyhdr}
-\renewcommand{\headrulewidth}{0.5pt}%
-\renewcommand{\footrulewidth}{0pt}%
-
-\RequirePackage{sectsty}
-\RequirePackage{helvet}
-
+% Hyperlinks
 \RequirePackage{hyperref}
 \hypersetup
 {
-    colorlinks = true,
-    linkcolor  = black,
-    filecolor  = magenta,
-    urlcolor   = blue
+  colorlinks = true,
+  linkcolor  = black, 
+  filecolor  = magenta,   
+  urlcolor   = blue
 }
-
-\RequirePackage{tikz}
-
-\newtheoremstyle{note}%
-{5pt}%          Space Above
-{5pt}%          Space Below
-{}%             Body Font
-{}%             Indent Amount
-{\scshape}%     Head Font
-{}%             Punctuation After Head
-{.5em}%         Space After Head
-{}%             Head Spec
 
 \newtheorem{thm}{Theorem}[chapter]
 \newtheorem{lem}[thm]{Lemma}
@@ -74,5 +57,21 @@
 \newtheorem*{case*}{Case}
 \newtheorem{case}{Case}
 
+% Custom Theorem Style Format
+%\newtheoremstyle{test}%
+%{5pt}%          Space Above
+%{5pt}%          Space Below
+%{}%             Body Font
+%{}%             Indent Amount
+%{\scshape}%     Head Font
+%{}%             Punctuation After Head
+%{.5em}%         Space After Head
+%{}%             Head Spec
+
+% Bibliography
+\usepackage[backend=biber,style=apa]{biblatex}
+%\addbibresource{sample.bib}
+
 % Lipsum
 \RequirePackage{blindtext}
+
