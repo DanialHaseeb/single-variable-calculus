@@ -1,16 +1,30 @@
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{SD}
+% ****************************************************************************************************
+% Personal LaTeX Style File
+%
+% Author:   Syed, Danial Haseeb
+% Version:  0.1
+% ****************************************************************************************************
+\NeedsTeXFormat{LaTeX2e}    % TeX Format Requirement
+\ProvidesPackage{SD}        % Style Name
 
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{1em}
+% Unicode Input
+\RequirePackage
+[utf8]
+{inputenc}
 
-\RequirePackage[utf8]{inputenc}
-\RequirePackage{amsmath, amssymb, amsthm}
-\RequirePackage{siunitx}
-\RequirePackage{blindtext}
-
+% Graphics
 \RequirePackage{graphicx}
-%\graphicspath{{./images}{../images}}
+\graphicspath{{./images}{../images}}
+
+% Mathematical Packages
+\RequirePackage
+{
+    amsmath,
+    amssymb,
+    amsthm,
+    siunitx,
+    booktabs
+}
 
 \usepackage[backend=biber,style=apa]{biblatex}
 %\addbibresource{sample.bib}
@@ -24,12 +38,12 @@
 
 \RequirePackage{hyperref}
 \hypersetup
-    {
-        colorlinks=true,
-        linkcolor=black,
-        filecolor=magenta,      
-        urlcolor=blue,
-    }
+{
+    colorlinks = true,
+    linkcolor  = black,
+    filecolor  = magenta,
+    urlcolor   = blue
+}
 
 \RequirePackage{tikz}
 
@@ -59,3 +73,6 @@
 \newtheorem*{note}{Note}
 \newtheorem*{case*}{Case}
 \newtheorem{case}{Case}
+
+% Lipsum
+\RequirePackage{blindtext}
