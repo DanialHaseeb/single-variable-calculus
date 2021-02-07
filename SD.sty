@@ -8,9 +8,7 @@
 \ProvidesPackage{SD}        % Style Name
 
 % Unicode Input
-\RequirePackage
-[utf8]
-{inputenc}
+\RequirePackage[utf8]{inputenc}
 
 % Paragraph Indent Style
 \nonzeroparskip
@@ -40,33 +38,47 @@
   urlcolor   = blue
 }
 
-\newtheorem{thm}{Theorem}[chapter]
-\newtheorem{lem}[thm]{Lemma}
-\newtheorem{prop}[thm]{Proposition}
-\newtheorem*{cor}{Corollary}
-\newtheorem*{KL}{Klein’s Lemma}
+% ****************************************************************************************************
+% Theorem Styles
+\newtheorem{thm}{Theorem}[chapter]        % Theorem
+\newtheorem{lem}[thm]{Lemma}              % Lemma
+\newtheorem{prop}[thm]{Proposition}       % Proposition
+\newtheorem*{cor}{Corollary}              % Corollary
 
+\newtheorem*{thm*}{Theorem}               % Theorem*
+\newtheorem*{lem*}{Lemma}                 % Lemma*
+\newtheorem*{prop*}{Proposition}          % Proposition*
+
+% Definition Styles
 \theoremstyle{definition}
-\newtheorem{defn}{Definition}[chapter]
-\newtheorem{exmp}{Example}[chapter]
-\newtheorem{xca}[exmp]{Exercise}
+\newtheorem{defn}{Definition}[chapter]    % Definition
+\newtheorem{exmp}{Example}[chapter]       % Example
+\newtheorem{xca}[exmp]{Exercise}          % Exercise
 
+\newtheorem*{defn*}{Definition}           % Definition*
+\newtheorem*{exmp*}{Example}              % Example*
+\newtheorem*{xca*}{Exercise}              % Exercise*
+
+% Remark Styles
 \theoremstyle{remark}
-\newtheorem*{rem}{Remark}
-\newtheorem*{note}{Note}
-\newtheorem*{case*}{Case}
-\newtheorem{case}{Case}
+\newtheorem*{rem}{Remark}                 % Remark
+\newtheorem*{note}{Note}                  % Note
+\newtheorem{case}{Case}                   % Case
 
-% Custom Theorem Style Format
-%\newtheoremstyle{test}%
-%{5pt}%          Space Above
-%{5pt}%          Space Below
-%{}%             Body Font
-%{}%             Indent Amount
-%{\scshape}%     Head Font
-%{}%             Punctuation After Head
-%{.5em}%         Space After Head
-%{}%             Head Spec
+\newtheorem*{case*}{Case}                 % Case*
+
+% Custom Style
+%\newtheoremstyle{test}
+%{5pt}      % Space Above
+%{5pt}      % Space Below
+%{}         % Body Font
+%{}         % Indent Amount
+%{\scshape} % Head Font
+%{}         % Punctuation After Head
+%{.5em}     % Space After Head
+%{}         % Head Spec
+
+% ****************************************************************************************************
 
 % Bibliography
 \usepackage[backend=biber,style=apa]{biblatex}
@@ -74,4 +86,3 @@
 
 % Lipsum
 \RequirePackage{blindtext}
-

@@ -1,7 +1,9 @@
 \documentclass
 [
   11pt,
-  a4paper
+  a4paper,
+  oneside,
+  openany
 ]
 {memoir}
 
@@ -40,12 +42,7 @@
 \mainmatter
 
 % Part 1 - Differentiation
-\cleardoublepage
-\begingroup
-  \makeatletter
-  \let\ps@plain\ps@empty
-  \part{Differentiation}
-\endgroup
+\part{Differentiation}
 
 % Chapter 1 - Derivatives
 \subfile{chapters/chapter1}
@@ -66,12 +63,7 @@
 
 
 % Part 2 - Applications of Differentiation
-\cleardoublepage
-\begingroup
-  \makeatletter
-  \let\ps@plain\ps@empty
-  \part{Applications of Differentiation}
-\endgroup
+\part{Applications of Differentiation}
 
 % Chapter 7 - Linear and Quadratic Approximations
 
@@ -83,20 +75,10 @@
 
 
 % Part 3 - Integration
-\cleardoublepage
-\begingroup
-  \makeatletter
-  \let\ps@plain\ps@empty
-  \part{Integration}
-\endgroup
+\part{Integration}
 
 % Part 4 - Techniques of Integration
-\cleardoublepage
-\begingroup
-  \makeatletter
-  \let\ps@plain\ps@empty
-  \part{Techniques of Integration}
-\endgroup
+\part{Techniques of Integration}
 
 \backmatter
 
