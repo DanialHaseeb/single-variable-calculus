@@ -1,24 +1,34 @@
-% ****************************************************************************************************
+% --------------------------------------------------------------------------------
 % Personal LaTeX Style File
 %
 % Author:   Syed, Danial Haseeb
 % Version:  0.1
-% ****************************************************************************************************
-\NeedsTeXFormat{LaTeX2e}    % TeX Format Requirement
-\ProvidesPackage{SD}        % Style Name
+% --------------------------------------------------------------------------------
 
-% Unicode Input
+% --------------------------------------------------------------------------------
+\NeedsTeXFormat{LaTeX2e}    % TeX Format Requirement
+\ProvidesPackage{SD}        % Package Name
+% --------------------------------------------------------------------------------
+
+% --------------------------------------------------------------------------------
+% Packages
+
+%% Unicode Input
 \RequirePackage[utf8]{inputenc}
 
-% Paragraph Indent Style
-\nonzeroparskip
-\setlength{\parindent}{0pt}
+%% Sub-Files
+\RequirePackage{subfiles}
 
-% Graphics
+%% Graphics
 \RequirePackage{graphicx}
-\graphicspath{{./images}{../images}}
+\graphicspath
+{
+  {./images}
+  {../images}
+  %%% Declare additional graphics locations here
+}
 
-% Mathematical Packages
+%% Mathematical Packages
 \RequirePackage
 {
   mathtools,
@@ -28,18 +38,73 @@
   tikz
 }
 
-% Hyperlinks
+%% Hyperlinks
 \RequirePackage{hyperref}
 \hypersetup
 {
   colorlinks = true,
   linkcolor  = black, 
-  filecolor  = magenta,   
+  filecolor  = magenta,
   urlcolor   = blue
 }
 
-% ****************************************************************************************************
-% Theorem Styles
+%% Bibliography
+%%%\usepackage[backend=biber,style=apa]{biblatex}
+%%%\addbibresource{sample.bib}
+
+%% Lipsum
+\RequirePackage{blindtext}
+% --------------------------------------------------------------------------------
+
+% --------------------------------------------------------------------------------
+% TikZ Depenedencies
+
+\usetikzlibrary
+{
+    angles,
+    quotes,
+    shapes,
+    calc,
+    arrows,
+    scopes
+}
+% --------------------------------------------------------------------------------
+
+% --------------------------------------------------------------------------------
+% Formatting Styles
+
+%% Paragraph Indent Style
+\nonzeroparskip
+\setlength{\parindent}{0pt}
+
+%% Page Style
+%\makepagestyle{SD}  % Style Name
+
+%\makeevenhead{SD}   % Even Headers
+%{\textsc{50310 Discrete Mathematics}}   % Left
+%{}                                      % Center
+%{\textsc{Homework 3}}                   % Right
+
+%\makeoddhead{SD}    % Odd Headers
+%{\textsc{50310 Discrete Mathematics}}   % Left
+%{}                                      % Center
+%{\textsc{Homework 3}}                   % Right
+
+%\makeevenfoot{SD}   % Even Footers
+%{}                                      % Left
+%{\thepage}                              % Center
+%{}                                      % Right
+
+%\makeoddfoot{SD}    % Odd Footers
+%{}                                      % Left
+%{\thepage}                              % Center
+%{}                                      % Right
+
+%\makeheadrule{SD}{\textwidth}{\normalrulethickness}   % Rule Below Header
+
+%\pagestyle{SD}      % Set Page Style
+
+%% Theorem Styles
 \newtheorem{thm}{Theorem}[chapter]        % Theorem
 \newtheorem{lem}[thm]{Lemma}              % Lemma
 \newtheorem{prop}[thm]{Proposition}       % Proposition
@@ -67,7 +132,7 @@
 
 \newtheorem*{case*}{Case}                 % Case*
 
-% Custom Style
+% Custom Theorem Style
 %\newtheoremstyle{test}
 %{5pt}      % Space Above
 %{5pt}      % Space Below
@@ -77,12 +142,4 @@
 %{}         % Punctuation After Head
 %{.5em}     % Space After Head
 %{}         % Head Spec
-
-% ****************************************************************************************************
-
-% Bibliography
-\usepackage[backend=biber,style=apa]{biblatex}
-%\addbibresource{sample.bib}
-
-% Lipsum
-\RequirePackage{blindtext}
+% --------------------------------------------------------------------------------

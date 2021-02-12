@@ -1,18 +1,72 @@
 \documentclass[./main.tex]{subfiles}
-% ****************************************************************************************************
+
+% --------------------------------------------------------------------------------
 \begin{document}
-% ****************************************************************************************************
-\begin{titlingpage}                           % Title Page Environment
-    \centering                              % Horizontal Center Alignment
-    \fontfamily{phv}\selectfont             % Font: Helvetica
-    \vspace*{\fill}                         % Vertical Center Alignment
-    \scshape                                % Small Caps
-    \Huge \textbf{Single-Variable Calculus} % Title
+% --------------------------------------------------------------------------------
+\begin{titlingpage}
+  % Double-Boxed Border
+  \begin{tikzpicture}[remember picture, overlay]
+    % Lengths
+    \newcommand*{\inset}      % inset from page edges
+    {0.1\paperwidth}
+    \newcommand*{\borderSep}  % seperation between borders
+    {7.5pt}
+    \newcommand*{\edgeSep}    % gap between border edges
+    {2.5pt}
 
-    \vspace{0.025 \paperheight}             % Vertical Space
+    % Co-ordinates
+    %% Outer
+    \coordinate (NWO) at ($(current page.north west) + (\inset,-\inset)$);
+    \coordinate (NEO) at ($(current page.north east) + (-\inset,-\inset)$);
+    \coordinate (SWO) at ($(current page.south west) + (\inset,\inset)$);
+    \coordinate (SEO) at ($(current page.south east) + (-\inset,\inset)$);
+    
+    %% Inner
+    \coordinate (NWI) at ($(NWO) + (\borderSep,-\borderSep)$);
+    \coordinate (NEI) at ($(NEO) + (-\borderSep,-\borderSep)$);
+    \coordinate (SWI) at ($(SWO) + (\borderSep,\borderSep)$);
+    \coordinate (SEI) at ($(SEO) + (-\borderSep,\borderSep)$);
+    
+    %% Borders
+    \draw[line width = 1.6pt,-round cap]
+      % Outer
+      ($(NWO) + (\edgeSep,0)$)  -- ($(NEO) + (-\edgeSep,0)$)
+      ($(SWO) + (\edgeSep,0)$)  -- ($(SEO) + (-\edgeSep,0)$)
+      ($(NWO) + (0,-\edgeSep)$) -- ($(SWO) + (0,\edgeSep)$)
+      ($(NEO) + (0,-\edgeSep)$) -- ($(SEO) + (0,\edgeSep)$)
+    
+      %\draw[line width = \normalrulethickness]
+      % Inner
+      ($(NWI) + (\edgeSep,0)$)  -- ($(NEI) + (-\edgeSep,0)$)
+      ($(SWI) + (\edgeSep,0)$)  -- ($(SEI) + (-\edgeSep,0)$)
+      ($(NWI) + (0,-\edgeSep)$) -- ($(SWI) + (0,\edgeSep)$)
+      ($(NEI) + (0,-\edgeSep)$) -- ($(SEI) + (0,\edgeSep)$);
+  \end{tikzpicture}
+  
+  \centering
+  
+  \scshape \LARGE
+  Single-Variable
+  
+  \Huge
+  calculus
 
-    \Large Syed, Danial Haseeb              % Author
-    \vfill
+  \vspace*{1em}
+
+  \rule{\textwidth}{1.6pt}
+  
+  \upshape \bfseries
+  PRINCIPIA
+
+  \LARGE
+  MATHEMATICA
+
+  \rule{\textwidth}{1.6pt}
+
+  \vfill
+
+  \includegraphics[height = 1em]{images/MIT.pdf}
+
 \end{titlingpage}
-% ****************************************************************************************************
+% --------------------------------------------------------------------------------
 \end{document}
