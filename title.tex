@@ -27,16 +27,16 @@
     \coordinate (SWI) at ($(SWO) + (\borderSep,\borderSep)$);
     \coordinate (SEI) at ($(SEO) + (-\borderSep,\borderSep)$);
     
-    %% Borders
-    \draw[line width = 1.6pt,-round cap]
-      % Outer
+    % Borders
+    %% Outer
+    \draw[line width = 1.6pt, MITred]
       ($(NWO) + (\edgeSep,0)$)  -- ($(NEO) + (-\edgeSep,0)$)
       ($(SWO) + (\edgeSep,0)$)  -- ($(SEO) + (-\edgeSep,0)$)
       ($(NWO) + (0,-\edgeSep)$) -- ($(SWO) + (0,\edgeSep)$)
-      ($(NEO) + (0,-\edgeSep)$) -- ($(SEO) + (0,\edgeSep)$)
+      ($(NEO) + (0,-\edgeSep)$) -- ($(SEO) + (0,\edgeSep)$);
     
-      %\draw[line width = \normalrulethickness]
-      % Inner
+    %% Inner
+    \draw[line width = 1.6pt, MITgray]
       ($(NWI) + (\edgeSep,0)$)  -- ($(NEI) + (-\edgeSep,0)$)
       ($(SWI) + (\edgeSep,0)$)  -- ($(SEI) + (-\edgeSep,0)$)
       ($(NWI) + (0,-\edgeSep)$) -- ($(SWI) + (0,\edgeSep)$)
@@ -45,17 +45,18 @@
   
   \centering
   
-  \scshape \LARGE
+  \scshape \LARGE \color{MITgray}
   Single-Variable
   
-  \Huge
-  calculus
+  \LARGE \upshape \bfseries
+  CALCULUS
 
   \vspace*{1em}
-
+  
+  \color{MITred} 
   \rule{\textwidth}{1.6pt}
   
-  \upshape \bfseries
+  \upshape \bfseries \Huge
   PRINCIPIA
 
   \LARGE
@@ -63,10 +64,25 @@
 
   \rule{\textwidth}{1.6pt}
 
+  \Huge
+  \vspace*{2em}
+
+  \color{MITgray} \mdseries \scshape \Large
+  Syed, Danial Haseeb
+
   \vfill
 
-  \includegraphics[height = 1em]{images/MIT.pdf}
+  \rule{\textwidth}{0.8pt}
 
+  \normalsize
+  Powered By
+  
+  \vspace*{1em}
+
+  \color{MITred}
+  OpenCourseWare
+
+  \includegraphics[height = 1em]{images/MIT.pdf}
 \end{titlingpage}
 % --------------------------------------------------------------------------------
 \end{document}

@@ -28,14 +28,19 @@
   %%% Declare additional graphics locations here
 }
 
+% Colours
+\RequirePackage[dvipsnames]{xcolor}
+\definecolor{MITgray}{RGB}{138,139,140}
+\definecolor{MITred}{RGB}{163,31,52}
+
 %% Mathematical Packages
 \RequirePackage
 {
-  mathtools,
-  siunitx,
-  amssymb,
   amsthm,
-  tikz
+  amssymb,
+  mathtools,
+  thmtools,
+  siunitx,
 }
 
 %% Hyperlinks
@@ -54,11 +59,9 @@
 
 %% Lipsum
 \RequirePackage{blindtext}
-% --------------------------------------------------------------------------------
 
-% --------------------------------------------------------------------------------
-% TikZ Depenedencies
-
+% TikZ
+\RequirePackage{tikz}
 \usetikzlibrary
 {
     angles,
@@ -78,7 +81,7 @@
 \setlength{\parindent}{0pt}
 
 %% Page Style
-%\makepagestyle{SD}  % Style Name
+\makepagestyle{SD}  % Style Name
 
 %\makeevenhead{SD}   % Even Headers
 %{\textsc{50310 Discrete Mathematics}}   % Left
@@ -90,19 +93,19 @@
 %{}                                      % Center
 %{\textsc{Homework 3}}                   % Right
 
-%\makeevenfoot{SD}   % Even Footers
-%{}                                      % Left
-%{\thepage}                              % Center
-%{}                                      % Right
+\makeevenfoot{SD}   % Even Footers
+{}                                      % Left
+{\thepage}                              % Center
+{}                                      % Right
 
-%\makeoddfoot{SD}    % Odd Footers
-%{}                                      % Left
-%{\thepage}                              % Center
-%{}                                      % Right
+\makeoddfoot{SD}    % Odd Footers
+{}                                      % Left
+{\thepage}                              % Center
+{}                                      % Right
 
-%\makeheadrule{SD}{\textwidth}{\normalrulethickness}   % Rule Below Header
+\makeheadrule{SD}{\textwidth}{\normalrulethickness}   % Rule Below Header
 
-%\pagestyle{SD}      % Set Page Style
+\pagestyle{SD}      % Set Page Style
 
 %% Theorem Styles
 \newtheorem{thm}{Theorem}[chapter]        % Theorem
@@ -114,7 +117,7 @@
 \newtheorem*{lem*}{Lemma}                 % Lemma*
 \newtheorem*{prop*}{Proposition}          % Proposition*
 
-% Definition Styles
+%% Definition Styles
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[chapter]    % Definition
 \newtheorem{exmp}{Example}[chapter]       % Example
@@ -124,7 +127,7 @@
 \newtheorem*{exmp*}{Example}              % Example*
 \newtheorem*{xca*}{Exercise}              % Exercise*
 
-% Remark Styles
+%% Remark Styles
 \theoremstyle{remark}
 \newtheorem*{rem}{Remark}                 % Remark
 \newtheorem*{note}{Note}                  % Note
@@ -132,7 +135,7 @@
 
 \newtheorem*{case*}{Case}                 % Case*
 
-% Custom Theorem Style
+%% Custom Theorem Style
 %\newtheoremstyle{test}
 %{5pt}      % Space Above
 %{5pt}      % Space Below
