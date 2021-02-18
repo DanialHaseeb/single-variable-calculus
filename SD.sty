@@ -3,37 +3,48 @@
 %
 % Author:   Syed, Danial Haseeb
 % Version:  0.1
-% --------------------------------------------------------------------------------
 
 % --------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}    % TeX Format Requirement
 \ProvidesPackage{SD}        % Package Name
-% --------------------------------------------------------------------------------
 
 % --------------------------------------------------------------------------------
-% Packages
-
-%% Unicode Input
+% Unicode Input
 \RequirePackage[utf8]{inputenc}
 
-%% Sub-Files
-\RequirePackage{subfiles}
+% --------------------------------------------------------------------------------
+% Infrastructure Packages
+\RequirePackage
+{
+  multirow,   % Merging Rows in Tables
+  hyperref,   % Hyperlinks
+  blindtext   % Lipsum
+}
 
-%% Graphics
+% --------------------------------------------------------------------------------
+% Images
 \RequirePackage{graphicx}
+
 \graphicspath
 {
   {./images}
   {../images}
-  %%% Declare additional graphics locations here
+  % Declare additional graphics locations here
 }
 
+% --------------------------------------------------------------------------------
 % Colours
 \RequirePackage[dvipsnames]{xcolor}
-\definecolor{MITgray}{RGB}{138,139,140}
-\definecolor{MITred}{RGB}{163,31,52}
 
-%% Mathematical Packages
+\definecolor{MITmagenta}{RGB}{142,31,163}   % MITmagenta
+\definecolor{MITgreen}{RGB}{52,163,31}      % MITgreen
+\definecolor{MITblue}{RGB}{31,52,163}       % MITblue
+\definecolor{MITcyan}{RGB}{31,163,142}      % MITcyan
+\definecolor{MITgray}{RGB}{138,139,140}     % MITgray
+\definecolor{MITred}{RGB}{163,31,52}        % MITred
+
+% --------------------------------------------------------------------------------
+% Mathematical Packages
 \RequirePackage
 {
   amsthm,
@@ -41,73 +52,129 @@
   mathtools,
   thmtools,
   siunitx,
+  cancel
 }
 
-%% Hyperlinks
-\RequirePackage{hyperref}
-\hypersetup
-{
-  colorlinks = true,
-  linkcolor  = black, 
-  filecolor  = magenta,
-  urlcolor   = blue
-}
-
-%% Bibliography
-%%%\usepackage[backend=biber,style=apa]{biblatex}
-%%%\addbibresource{sample.bib}
-
-%% Lipsum
-\RequirePackage{blindtext}
-
-% TikZ
+% --------------------------------------------------------------------------------
+% Drawing Library
 \RequirePackage{tikz}
+
 \usetikzlibrary
 {
     angles,
     quotes,
     shapes,
-    calc,
     arrows,
-    scopes
+    scopes,
+    calc
 }
-% --------------------------------------------------------------------------------
 
 % --------------------------------------------------------------------------------
-% Formatting Styles
+% Code Highlighting
+%\usepackage{minted}
+%
+%\usemintedstyle{xcode}
+%
+%\setminted
+%{
+%  autogobble,
+%  mathescape,
+%
+%  frame      = lines,
+%  framesep   = 11pt,
+%  breaklines = true
+%}
 
-%% Paragraph Indent Style
+% --------------------------------------------------------------------------------
+% Bibliography
+%\usepackage[backend=biber,style=apa]{biblatex}
+
+%\addbibresource{sample.bib}
+
+% --------------------------------------------------------------------------------
+% Paragraph Indent
+
 \nonzeroparskip
 \setlength{\parindent}{0pt}
 
-%% Page Style
-\makepagestyle{SD}  % Style Name
+% --------------------------------------------------------------------------------
+% Widow Management
 
-%\makeevenhead{SD}   % Even Headers
-%{\textsc{50310 Discrete Mathematics}}   % Left
-%{}                                      % Center
-%{\textsc{Homework 3}}                   % Right
+\setlength{\topskip}{1.6\topskip}
+\checkandfixthelayout
+\sloppybottom
 
-%\makeoddhead{SD}    % Odd Headers
-%{\textsc{50310 Discrete Mathematics}}   % Left
-%{}                                      % Center
-%{\textsc{Homework 3}}                   % Right
+% --------------------------------------------------------------------------------
+% Contents
 
-\makeevenfoot{SD}   % Even Footers
-{}                                      % Left
-{\thepage}                              % Center
-{}                                      % Right
+%% Dotted Leaders
+\renewcommand{\cftdotsep}{\cftnodots}
 
-\makeoddfoot{SD}    % Odd Footers
-{}                                      % Left
-{\thepage}                              % Center
-{}                                      % Right
+%% Fit Roman Numerals
+\renewcommand{\cftpartnumwidth}{5ex}
+\renewcommand{\cftchapternumwidth}{\cftpartnumwidth}
+\renewcommand{\cftsectionnumwidth}{\cftpartnumwidth}
+\renewcommand{\cftsectionindent}{\dimexpr \cftpartindent + \cftpartnumwidth}
 
-\makeheadrule{SD}{\textwidth}{\normalrulethickness}   % Rule Below Header
+%% Fonts
+\renewcommand{\cftpartfont}{\large\scshape\color{MITgray}}
+\renewcommand{\cftchapterfont}{\scshape}
 
-\pagestyle{SD}      % Set Page Style
+%% Page Numbers
 
-%% Theorem Styles
+%%% Off
+\cftpagenumbersoff{part}
+
+%%% Placement
+\renewcommand{\cftchapterleader}{\quad}
+\renewcommand{\cftchapterafterpnum}{\cftparfillskip}
+\renewcommand{\cftsectionleader}{\quad}
+\renewcommand{\cftsectionafterpnum}{\cftparfillskip}
+
+%%% Style
+\renewcommand{\cftchapterpagefont}{\normalfont\color{MITblue}}
+\renewcommand{\cftsectionpagefont}{\normalfont\color{MITblue}}
+
+% --------------------------------------------------------------------------------
+% Parts
+
+\aliaspagestyle{part}{empty}
+\renewcommand{\partnamefont}{\normalfont\huge\color{MITgray}\scshape}
+\renewcommand{\partnumfont}{\normalfont\huge\color{MITgray}}
+\renewcommand{\parttitlefont}{\normalfont\Huge\color{MITred}\scshape}
+
+% --------------------------------------------------------------------------------
+% Chapters
+
+\makechapterstyle{SD}
+{
+  \renewcommand{\chapterheadstart}{}
+  \renewcommand{\printchaptertitle}[1]{\color{MITred}\hrule\vskip\onelineskip\chaptitlefont ##1}
+  \renewcommand{\afterchaptertitle}{\color{MITred}\vskip\onelineskip\hrule\vskip\afterchapskip}
+  \renewcommand{\chapnamefont}{\normalfont\huge\color{MITgray}\scshape}
+  \renewcommand{\chapnumfont}{\normalfont\huge\color{MITgray}}
+  \renewcommand{\chaptitlefont}{\normalfont\Huge\color{MITred}\scshape}
+}
+\chapterstyle{SD}
+
+% --------------------------------------------------------------------------------
+% (Sub)Sections
+\setsecheadstyle{\Large\scshape}
+\setsubsecheadstyle{\large\scshape}
+\setsubsubsecheadstyle{\scshape\raggedright}
+\setparaheadstyle{\scshape}
+
+% --------------------------------------------------------------------------------
+% Pages
+\makepagestyle{SD}
+\nouppercaseheads
+\addtopsmarks{SD}{}{\createmark{chapter}{both}{shownumber}{}{. \ }}
+\makeoddhead{SD}{\scshape\rightmark}{}{\thepage}
+\makeheadrule{SD}{\textwidth}{\normalrulethickness}
+\pagestyle{SD}
+
+% --------------------------------------------------------------------------------
+% Theorem
 \newtheorem{thm}{Theorem}[chapter]        % Theorem
 \newtheorem{lem}[thm]{Lemma}              % Lemma
 \newtheorem{prop}[thm]{Proposition}       % Proposition
@@ -117,7 +184,7 @@
 \newtheorem*{lem*}{Lemma}                 % Lemma*
 \newtheorem*{prop*}{Proposition}          % Proposition*
 
-%% Definition Styles
+%% Definition
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[chapter]    % Definition
 \newtheorem{exmp}{Example}[chapter]       % Example
@@ -127,7 +194,7 @@
 \newtheorem*{exmp*}{Example}              % Example*
 \newtheorem*{xca*}{Exercise}              % Exercise*
 
-%% Remark Styles
+%% Remark
 \theoremstyle{remark}
 \newtheorem*{rem}{Remark}                 % Remark
 \newtheorem*{note}{Note}                  % Note
@@ -135,7 +202,7 @@
 
 \newtheorem*{case*}{Case}                 % Case*
 
-%% Custom Theorem Style
+%% Custom Theorem
 %\newtheoremstyle{test}
 %{5pt}      % Space Above
 %{5pt}      % Space Below

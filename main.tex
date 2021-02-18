@@ -3,11 +3,13 @@
 % Syed, Danial Haseeb
 % --------------------------------------------------------------------------------
 \documentclass[11pt, a4paper, oneside]{memoir}
+% --------------------------------------------------------------------------------
 \usepackage{SD}
+\usepackage{subfiles}
 % --------------------------------------------------------------------------------
 \begin{document}
 % --------------------------------------------------------------------------------
-\frontmatter
+\frontmatter*
 \pagenumbering{Roman}
 
 % Title Page
@@ -17,13 +19,23 @@
 \subfile{copyright}
 \clearpage
 
+% Dedication Page
+\thispagestyle{empty}
+\vspace*{\fill}
+\[ \forall \]
+\vfill
+\clearpage
+
+\setcounter{page}{4}
+
 % Contents
 \tableofcontents*
 
-% Preface
-\subfile{chapters/preface}
+% Introduction
+\subfile{chapters/introduction}
 
-\mainmatter
+\mainmatter*
+\pagenumbering*{arabic}
 
 % Part 1 - Differentiation
 \part{Differentiation}
@@ -48,6 +60,7 @@
 
 % Part 2 - Applications of Differentiation
 \part{Applications of Differentiation}
+\Blinddocument
 
 % Chapter 7 - Linear and Quadratic Approximations
 
@@ -60,9 +73,11 @@
 
 % Part 3 - Integration
 \part{Integration}
+\Blinddocument
 
 % Part 4 - Techniques of Integration
 \part{Techniques of Integration}
+\Blinddocument
 
 \backmatter
 
@@ -79,5 +94,23 @@
 % Index
 
 % Bibliography
-% **************************************************
+
+% Colophon
+\clearpage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+  \begin{minipage}{0.75\textwidth}
+    \begin{center}
+      {\LARGE \textbf{\LaTeX}}
+
+      These lecture notes were typeset using the \LaTeX\ typesetting system
+      (created by Leslie Lamport); specifically, its \texttt{memoir} class
+      (created by Peter Wilson). The body text is set 11pt with Computer Modern
+      (designed by Donald Knuth), which includes \textit{italics} and \textsc{small caps.}
+    \end{center}
+  \end{minipage}
+\end{center}
+\vfill
+% --------------------------------------------------------------------------------
 \end{document}

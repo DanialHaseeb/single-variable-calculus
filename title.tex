@@ -1,4 +1,4 @@
-\documentclass[./main.tex]{subfiles}
+\documentclass[./main]{subfiles}
 
 % --------------------------------------------------------------------------------
 \begin{document}
@@ -29,60 +29,67 @@
     
     % Borders
     %% Outer
-    \draw[line width = 1.6pt, MITred]
+    \draw[line width = \heavyrulewidth, MITred]
       ($(NWO) + (\edgeSep,0)$)  -- ($(NEO) + (-\edgeSep,0)$)
       ($(SWO) + (\edgeSep,0)$)  -- ($(SEO) + (-\edgeSep,0)$)
       ($(NWO) + (0,-\edgeSep)$) -- ($(SWO) + (0,\edgeSep)$)
       ($(NEO) + (0,-\edgeSep)$) -- ($(SEO) + (0,\edgeSep)$);
     
     %% Inner
-    \draw[line width = 1.6pt, MITgray]
+    \draw[line width = \heavyrulewidth, MITgray]
       ($(NWI) + (\edgeSep,0)$)  -- ($(NEI) + (-\edgeSep,0)$)
       ($(SWI) + (\edgeSep,0)$)  -- ($(SEI) + (-\edgeSep,0)$)
       ($(NWI) + (0,-\edgeSep)$) -- ($(SWI) + (0,\edgeSep)$)
       ($(NEI) + (0,-\edgeSep)$) -- ($(SEI) + (0,\edgeSep)$);
   \end{tikzpicture}
-  
-  \centering
-  
-  \scshape \LARGE \color{MITgray}
-  Single-Variable
-  
-  \LARGE \upshape \bfseries
-  CALCULUS
+  \begin{center}
+    {
+      \color{MITgray}
+      {%
+        \huge%
+        \textsc{Single-Variable}%
 
-  \vspace*{1em}
-  
-  \color{MITred} 
-  \rule{\textwidth}{1.6pt}
-  
-  \upshape \bfseries \Huge
-  PRINCIPIA
+        \vspace*{\parskip}
 
-  \LARGE
-  MATHEMATICA
+        \textbf{CALCULUS}%
+      }%
+    }
 
-  \rule{\textwidth}{1.6pt}
+    \vspace*{2em}
+    
+    {
+      \color{MITred}
+      \rule{\textwidth}{\heavyrulewidth}
 
-  \Huge
-  \vspace*{2em}
+      \vspace{\parskip}
 
-  \color{MITgray} \mdseries \scshape \Large
-  Syed, Danial Haseeb
+      {\Huge \textbf{P\,R\,I\,N\,C\,I\,P\,I\,A}}
+      
+      \vspace{\parskip}
 
-  \vfill
+      {\huge \textbf{MATHEMATICA}}\\[\parskip]
+      \rule{\textwidth}{\heavyrulewidth}
+    }
 
-  \rule{\textwidth}{0.8pt}
+    \vspace*{2em}
 
-  \normalsize
-  Powered By
-  
-  \vspace*{1em}
+    {\color{MITgray}{\LARGE \textsc{Syed, Danial Haseeb}}}
 
-  \color{MITred}
-  OpenCourseWare
+    \vfill
 
-  \includegraphics[height = 1em]{images/MIT.pdf}
+    {
+      \color{MITgray}
+      \rule{\textwidth}{\normalrulethickness}
+      
+      {\large \textsc{Powered By}}
+    }
+    
+    \vspace*{1em}
+
+    {\color{MITred} \textsc{OpenCourseWare}}
+
+    \includegraphics[height = 1em]{images/MIT.pdf}
+  \end{center}
 \end{titlingpage}
 % --------------------------------------------------------------------------------
 \end{document}
