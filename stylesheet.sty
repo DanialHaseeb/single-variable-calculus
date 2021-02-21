@@ -4,7 +4,7 @@
 % TeX Style Sheet
 % --------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}    % TeX Format Requirement
-\ProvidesPackage{SD}        % Package Name
+\ProvidesPackage{stylesheet}        % Package Name
 % --------------------------------------------------------------------------------
 % Unicode Input
 \RequirePackage[utf8]{inputenc}
@@ -40,7 +40,7 @@
   mathtools,
   thmtools,
   siunitx,
-  %cancel
+  cancel
 }
 
 % --------------------------------------------------------------------------------
@@ -163,10 +163,12 @@
 
 % --------------------------------------------------------------------------------
 % (Sub)Sections
-\setsecheadstyle{\Large\scshape}
-\setsubsecheadstyle{\large\scshape}
+\setsecheadstyle{\Large\color{MITred}\scshape}
+\setsubsecheadstyle{\large\color{MITred}\scshape}
 \setsubsubsecheadstyle{\scshape\raggedright}
 \setparaheadstyle{\scshape}
+\setsechook{\setsecnumformat{{\normalfont\Large\color{MITgray}\thesection\quad}}}
+\setsubsechook{\setsecnumformat{{\normalfont\Large\color{MITgray}\thesection\quad}}}
 
 % --------------------------------------------------------------------------------
 % Pages
@@ -176,6 +178,19 @@
 \makeoddhead{SD}{\scshape\rightmark}{}{\thepage}
 \makeheadrule{SD}{\textwidth}{\normalrulethickness}
 \pagestyle{SD}
+
+% --------------------------------------------------------------------------------
+% Footnotes
+\renewcommand*{\@makefnmark}{\hbox{\textsuperscript{\color{MITgray}\@thefnmark}}}
+\setlength{\footmarkwidth}{1.8em}
+\setlength{\footmarksep}{0em}
+\footmarkstyle{#1\hfill}
+\renewcommand*{\footnoterule}
+{%
+  \kern-3pt%
+  \color{MITgray}\hrule width 0.4\columnwidth
+  \kern 2.6pt%
+}
 
 % --------------------------------------------------------------------------------
 % Theorem

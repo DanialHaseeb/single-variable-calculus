@@ -4,26 +4,21 @@
 % Main TeX File
 % --------------------------------------------------------------------------------
 \documentclass[11pt, a4paper, oneside]{memoir}
-\usepackage{SD}   % Style Sheet
+\usepackage{stylesheet}
 % --------------------------------------------------------------------------------
 \begin{document}
 % --------------------------------------------------------------------------------
 \frontmatter*
 \pagenumbering{Roman}
 
-% Title Page
+% Title
 \subfile{front-matter/title}
 
-% Copyright Page
-\subfile{front-matter/copyright}
-\clearpage
+% Copyright
+\subfileinclude{front-matter/copyright}
 
-% Dedication Page
-\thispagestyle{empty}
-\vspace*{\fill}
-\[ \forall  \]
-\vfill
-\clearpage
+% Dedication
+\subfileinclude{front-matter/dedication}
 
 \setcounter{page}{4}
 
@@ -55,7 +50,6 @@
 \subfile{main-matter/chapter5}
 
 % Chapter 6 - Exponential and Logarithmic Differentiation
-
 
 % Part 2 - Applications of Differentiation
 \part{Applications of Differentiation}
@@ -94,6 +88,6 @@
 % Bibliography
 
 % Colophon
-\subfile{back-matter/colophon}
+\subfileinclude{back-matter/colophon}
 % --------------------------------------------------------------------------------
 \end{document}
