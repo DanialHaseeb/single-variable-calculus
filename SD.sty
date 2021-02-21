@@ -1,25 +1,13 @@
 % --------------------------------------------------------------------------------
-% Personal LaTeX Style File
-%
-% Author:   Syed, Danial Haseeb
-% Version:  0.1
-
+% Single-Variable Calculus
+% Syed, Danial Haseeb
+% TeX Style Sheet
 % --------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}    % TeX Format Requirement
 \ProvidesPackage{SD}        % Package Name
-
 % --------------------------------------------------------------------------------
 % Unicode Input
 \RequirePackage[utf8]{inputenc}
-
-% --------------------------------------------------------------------------------
-% Infrastructure Packages
-\RequirePackage
-{
-  multirow,   % Merging Rows in Tables
-  hyperref,   % Hyperlinks
-  blindtext   % Lipsum
-}
 
 % --------------------------------------------------------------------------------
 % Images
@@ -52,7 +40,7 @@
   mathtools,
   thmtools,
   siunitx,
-  cancel
+  %cancel
 }
 
 % --------------------------------------------------------------------------------
@@ -92,6 +80,16 @@
 %\addbibresource{sample.bib}
 
 % --------------------------------------------------------------------------------
+% Infrastructure Packages
+\RequirePackage
+{
+  blindtext,  % Lipsum
+  multirow,   % Merging Rows in Tables
+  subfiles,   % File Management
+  hyperref    % Hyperlinks
+}
+
+% --------------------------------------------------------------------------------
 % Paragraph Indent
 
 \nonzeroparskip
@@ -103,6 +101,12 @@
 \setlength{\topskip}{1.6\topskip}
 \checkandfixthelayout
 \sloppybottom
+
+% --------------------------------------------------------------------------------
+% Float Locations
+
+\setfloatlocations{figure}{!htbp}
+\setfloatlocations{table}{!htbp}
 
 % --------------------------------------------------------------------------------
 % Contents

@@ -1,11 +1,10 @@
 % --------------------------------------------------------------------------------
 % Single-Variable Calculus
 % Syed, Danial Haseeb
+% Main TeX File
 % --------------------------------------------------------------------------------
 \documentclass[11pt, a4paper, oneside]{memoir}
-% --------------------------------------------------------------------------------
-\usepackage{SD}
-\usepackage{subfiles}
+\usepackage{SD}   % Style Sheet
 % --------------------------------------------------------------------------------
 \begin{document}
 % --------------------------------------------------------------------------------
@@ -13,16 +12,16 @@
 \pagenumbering{Roman}
 
 % Title Page
-\subfile{title}
+\subfile{front-matter/title}
 
 % Copyright Page
-\subfile{copyright}
+\subfile{front-matter/copyright}
 \clearpage
 
 % Dedication Page
 \thispagestyle{empty}
 \vspace*{\fill}
-\[ \forall \]
+\[ \forall  \]
 \vfill
 \clearpage
 
@@ -32,7 +31,7 @@
 \tableofcontents*
 
 % Introduction
-\subfile{chapters/introduction}
+\subfile{front-matter/introduction}
 
 \mainmatter*
 \pagenumbering*{arabic}
@@ -41,19 +40,19 @@
 \part{Differentiation}
 
 % Chapter 1 - Derivatives
-\subfile{chapters/chapter1}
+\subfile{main-matter/chapter1}
 
 %Chapter 2 - Limits and Continuity
-\subfile{chapters/chapter2}
+\subfile{main-matter/chapter2}
 
 % Chapter 3 - Derivative Formulæ
-\subfile{chapters/chapter3}
+\subfile{main-matter/chapter3}
 
 % Chapter 4 - Higher Derivatives
-\subfile{chapters/chapter4}
+\subfile{main-matter/chapter4}
 
-% Chapter 5 - Implicit Differentiation and Inverses
-\subfile{chapters/chapter5}
+% Chapter 5 - Implicit Differentiation
+\subfile{main-matter/chapter5}
 
 % Chapter 6 - Exponential and Logarithmic Differentiation
 
@@ -80,10 +79,9 @@
 \Blinddocument
 
 \backmatter
+\Blinddocument
 
 % Acknowledgments
-\chapter{Acknowledgments}
-\Blindtext
 
 % Appendix
 
@@ -96,21 +94,6 @@
 % Bibliography
 
 % Colophon
-\clearpage
-\thispagestyle{empty}
-\vspace*{\fill}
-\begin{center}
-  \begin{minipage}{0.75\textwidth}
-    \begin{center}
-      {\LARGE \textbf{\LaTeX}}
-
-      These lecture notes were typeset using the \LaTeX\ typesetting system
-      (created by Leslie Lamport); specifically, its \texttt{memoir} class
-      (created by Peter Wilson). The body text is set 11pt with Computer Modern
-      (designed by Donald Knuth), which includes \textit{italics} and \textsc{small caps.}
-    \end{center}
-  \end{minipage}
-\end{center}
-\vfill
+\subfile{back-matter/colophon}
 % --------------------------------------------------------------------------------
 \end{document}

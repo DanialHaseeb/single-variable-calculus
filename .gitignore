@@ -274,3 +274,8 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+
+# Subfile output files
+front-matter/*.pdf
+main-matter/*.pdf
+back-matter/*.pdf
