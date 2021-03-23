@@ -22,14 +22,16 @@
 
 % --------------------------------------------------------------------------------
 % Colours
-\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage[svgnames]{xcolor}
 
-\definecolor{MITmagenta}{RGB}{142,31,163}   % MITmagenta
-\definecolor{MITgreen}{RGB}{52,163,31}      % MITgreen
-\definecolor{MITblue}{RGB}{31,52,163}       % MITblue
-\definecolor{MITcyan}{RGB}{31,163,142}      % MITcyan
-\definecolor{MITgray}{RGB}{138,139,140}     % MITgray
-\definecolor{MITred}{RGB}{163,31,52}        % MITred
+%% MIT
+\definecolor {MITred}     {RGB} { 163 , 031 , 052 }
+\definecolor {MITgreen}   {RGB} { 052 , 163 , 031 }
+\definecolor {MITblue}    {RGB} { 031 , 052 , 163 }
+\definecolor {MITcyan}    {RGB} { 031 , 163 , 142 }
+\definecolor {MITmagenta} {RGB} { 142 , 031 , 163 }
+\definecolor {MITyellow}  {RGB} { 163 , 142 , 031 }
+\definecolor {MITgray}    {RGB} { 138 , 139 , 140 }
 
 % --------------------------------------------------------------------------------
 % Mathematical Packages
@@ -49,12 +51,15 @@
 
 \usetikzlibrary
 {
-    angles,
-    quotes,
-    shapes,
-    arrows,
-    scopes,
-    calc
+  positioning,
+  graphs,
+  angles,
+  quotes,
+  shapes,
+  arrows,
+  scopes,
+  babel,
+  calc
 }
 
 % --------------------------------------------------------------------------------
@@ -93,12 +98,22 @@
 % Metadata
 \hypersetup
 {
+  hidelinks,
   pdftitle    = Single-Variable Calculus,
   pdfauthor   = Syed Danial Haseeb,
   pdfsubject  = Principia Mathematica,
   pdfcreator  = LaTeX2e,
   pdfkeywords = calculus
 }
+
+% --------------------------------------------------------------------------------
+% Pages
+\makepagestyle{SD}
+\nouppercaseheads
+\addtopsmarks{SD}{}{\createmark{chapter}{both}{shownumber}{}{. \ }}
+\makeoddhead{SD}{\scshape\rightmark}{}{\thepage}
+\makeheadrule{SD}{\textwidth}{\normalrulethickness}
+\pagestyle{SD}
 
 % --------------------------------------------------------------------------------
 % Paragraph Indent
@@ -182,15 +197,6 @@
 \setsubsechook{\setsecnumformat{{\normalfont\Large\color{MITgray}\thesection\quad}}}
 
 % --------------------------------------------------------------------------------
-% Pages
-\makepagestyle{SD}
-\nouppercaseheads
-\addtopsmarks{SD}{}{\createmark{chapter}{both}{shownumber}{}{. \ }}
-\makeoddhead{SD}{\scshape\rightmark}{}{\thepage}
-\makeheadrule{SD}{\textwidth}{\normalrulethickness}
-\pagestyle{SD}
-
-% --------------------------------------------------------------------------------
 % Footnotes
 \renewcommand*{\@makefnmark}{\hbox{\textsuperscript{\color{MITgray}\@thefnmark}}}
 \setlength{\footmarkwidth}{1.8em}
@@ -204,7 +210,8 @@
 }
 
 % --------------------------------------------------------------------------------
-% Theorem
+% Theorems
+
 \newtheorem{thm}{Theorem}[chapter]        % Theorem
 \newtheorem{lem}[thm]{Lemma}              % Lemma
 \newtheorem{prop}[thm]{Proposition}       % Proposition
@@ -227,9 +234,6 @@
 %% Remark
 \theoremstyle{remark}
 \newtheorem*{rem}{Remark}                 % Remark
-\newtheorem*{note}{Note}                  % Note
-\newtheorem{case}{Case}                   % Case
-
 \newtheorem*{case*}{Case}                 % Case*
 
 %% Custom Theorem
@@ -242,5 +246,31 @@
 %{}         % Punctuation After Head
 %{.5em}     % Space After Head
 %{}         % Head Spec
+
+\declaretheorem {theorem}      [parent = chapter]
+\declaretheorem {theorem*}     [numbered = no, name = Theorem]
+
+\declaretheorem {lemma}        [sibling = theorem]
+\declaretheorem {lemma*}       [numbered = no, name = Lemma]
+
+\declaretheorem {proposition}  [sibling = theorem]
+\declaretheorem {proposition*} [numbered = no, name = Proposition] 
+
+\declaretheorem {corollary}    [numbered = no]
+
+\declaretheorem {definition}   [style = definition]
+\declaretheorem {definition*}  [style = definition, numbered = no, name = Definition]
+
+\declaretheorem {example}      [style = definition, parent = chapter]
+\declaretheorem {example*}     [style = definition, numbered = no, name = Example]
+
+\declaretheorem {exercise}     [style = definition, sibling = example]
+\declaretheorem {exercise*}    [style = definition, numbered = no, name = Exercise]
+
+\declaretheorem {remark}       [style = remark, numbered = no]
+
+\declaretheorem {note}         [style = remark, numbered = no]
+
+\declaretheorem {case}         [style = remark]
 % --------------------------------------------------------------------------------
 \endinput
